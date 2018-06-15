@@ -1,11 +1,27 @@
-import { default as Library, add } from '..';
+jest.mock('util', () => ({
+    promisify: jest.fn().mockReturnValue(() => Promise.resolve('promisify')),
+}));
+
+let render;
 
 describe('index', () => {
-    it('should export a default value', () => {
-        expect(Library).toBeTruthy();
+    beforeEach(() => {
+        render = require('..').default;
     });
 
-    it('should export `add()`', () => {
-        expect(add).toBeTruthy();
+    it('should not throw errors', async done => {
+        expect(async () => {
+            await render('file.txt');
+
+            done();
+        }).not.toThrow();
+    });
+
+    it('should write overwrite a file', async done => {
+        const name = 'file.txt';
+
+        await render(name);
+
+        done();
     });
 });
