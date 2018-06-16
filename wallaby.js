@@ -11,6 +11,7 @@ module.exports = wallaby => ({
     files: [
         'src/**/*.ts?(x)',
         'src/**/*.snap',
+        'src/**/__mocks__/*',
         '!src/**/*.spec.ts?(x)',
         '!src/**/__tests__/**/*.ts?(x)',
     ],

@@ -15,13 +15,17 @@ export default async (
     data: object = {},
     options: IOptions = {},
 ) => {
-    const compiled = await render(path, data, options.read || {});
+    if (!options.read) {
+        options.read = {};
+    }
 
-    await write(
-        path,
-        compiled,
-        options.write || {
+    if (!options.write) {
+        options.write = {
             encoding: 'utf8',
-        },
-    );
+        };
+    }
+
+    const compiled = await render(path, data, options.read);
+
+    await write(path, compiled, options.write);
 };

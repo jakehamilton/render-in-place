@@ -1,2 +1,3 @@
-export const promisify = (f: any) => (...args: any[]) =>
-    Promise.resolve(f(...args));
+export const promisify = jest
+    .fn()
+    .mockReturnValue(() => Promise.resolve('promisified-value'));

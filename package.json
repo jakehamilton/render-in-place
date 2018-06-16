@@ -14,7 +14,7 @@
         "build": "yarn run build:clean && yarn run build:code",
         "build:code": "tsc",
         "build:clean": "rimraf dist/*",
-        "test": "jest --coverage --verbose --config jest.config.json",
+        "test": "jest --coverage --config jest.config.json",
         "test:watch": "jest --watch --notify --config jest.config.json",
         "docs": "yarn run docs:build",
         "docs:dev": "vuepress dev docs",
