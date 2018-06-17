@@ -1,7 +1,7 @@
 {
     "name": "render-in-place",
     "version": "0.0.0-development",
-    "description": "Get your next TypeScript project started!",
+    "description": "Render an ejs templated file",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "author": "Jake Hamilton <jehamilton122@gmail.com>",
@@ -10,6 +10,10 @@
         "url": "https://github.com/jakehamilton/render-in-place"
     },
     "license": "MIT",
+    "files": [
+        "dist",
+        "docs"
+    ],
     "scripts": {
         "build": "yarn run build:clean && yarn run build:code",
         "build:code": "tsc",
@@ -22,7 +26,7 @@
         "chore:lint": "tslint --project . -e \"**/__{tests,mocks}__/**\" -e \"**/*.spec.*\"",
         "chore:format": "prettier --write src/**/*.ts",
         "chore:deploy": "travis-deploy-once",
-        "chore:release": "semantic-release",
+        "chore:release": "yarn run build && semantic-release",
         "chore:setup": "figlet -f \"Small Slant\" \"Setup\" && npx semantic-release-cli setup",
         "commit": "git-cz",
         "precommit": "lint-staged"
