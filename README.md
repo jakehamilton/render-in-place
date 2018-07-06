@@ -21,7 +21,7 @@ render(...)
 With `allowSyntheticDefaultImports`
 
 ```typescript
-import render from 'render-inplace';
+import render from 'render-in-place';
 
 render(...)
 ```
